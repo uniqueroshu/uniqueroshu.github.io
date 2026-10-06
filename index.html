@@ -114,11 +114,16 @@ canvas.g{background:#12121a;border:1px solid #2c2c38;border-radius:10px;max-widt
 .g2 .c{position:absolute;display:flex;align-items:center;justify-content:center;font-weight:700;border-radius:8px;transition:left .1s,top .1s}
 .ms{grid-template-columns:repeat(8,1fr);width:min(92vw,340px)}.ms button{font-size:15px;border-radius:6px}
 .ms button.o{background:#0e0e14;border-color:#1c1c26}
+.hd{position:fixed;top:0;left:0;right:0;z-index:70;display:flex;align-items:center;justify-content:space-between;padding:14px 20px;background:rgba(11,11,16,.55);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.07)}
+.hd b{font-size:13px;letter-spacing:.3em}.hd nav{display:flex;gap:18px}.hd nav a,.hd nav button{color:#ddd;text-decoration:none;font:inherit;font-size:12px;letter-spacing:.15em;text-transform:uppercase;background:none;border:0;cursor:pointer;padding:0}
+.hd nav a:hover,.hd nav button:hover{color:#ff7aa8}
+@media(max-width:480px){.hd nav{gap:12px}.hd nav a,.hd nav button{font-size:11px;letter-spacing:.08em}.hd b{letter-spacing:.15em}}
 </style>
 </head>
 <body>
 <div id="load"><div class="w" id="w"></div><div class="ln"><i id="fl"></i><div class="pt" id="pt"></div></div><div id="pct">0<small>%</small></div></div>
 
+<header class="hd"><b>ROSH4N.MAD</b><nav><a href="#ig">Instagram</a><button type="button" id="hg">Games</button><a href="#ct">Contact</a></nav></header>
 <section class="hero" id="hero">
 <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div><div id="glow"></div>
 <div class="in">
@@ -133,14 +138,14 @@ canvas.g{background:#12121a;border:1px solid #2c2c38;border-radius:10px;max-widt
 
 <div class="band" aria-hidden="true"><div id="mq"></div></div>
 
-<section class="ig"><div class="in">
+<section class="ig" id="ig"><div class="in">
 <p class="k r">Find me on Instagram</p>
 <a class="row r" href="https://www.instagram.com/rosh4n.mad" target="_blank" rel="noopener"><i>01</i><b>@rosh4n.mad</b><small>Main</small><em>&rarr;</em></a>
 <a class="row r" href="https://www.instagram.com/rayden.creates" target="_blank" rel="noopener"><i>02</i><b>@rayden.creates</b><small>Trending photo + text Reels</small><em>&rarr;</em></a>
 <a class="row r" href="https://www.instagram.com/ind.scrolls" target="_blank" rel="noopener"><i>03</i><b>@ind.scrolls</b><small>India Reels</small><em>&rarr;</em></a>
 </div></section>
 
-<section class="ct"><div class="in">
+<section class="ct" id="ct"><div class="in">
 <p class="k r" style="color:#8d8784">Say hello</p>
 <a class="mail r" href="mailto:ind.scrolls@gmail.com">ind.scrolls@gmail.com</a>
 <a class="ph r" href="tel:+919021198214">+91 90211 98214</a>
@@ -176,16 +181,14 @@ b.onclick=function(){var o=em.className==='on';em.className=o?'':'on';b.setAttri
 </script>
 <button class="gbtn" id="gb" type="button">&#127918; Mini games</button>
 <div id="gm"><div class="gh"><b>Mini games</b><button id="gx" type="button">Close</button></div><div class="tabs" id="tb"></div><div id="st"></div></div>
-<script>(function(){
+<script>/* To add a game: append ['Name',function(){...use st (stage), el(), swipe()...}] to the games array. */(function(){
 function px(map,pal,s){var h=map.length,w=map[0].length,o='<svg width="'+w*s+'" height="'+h*s+'" viewBox="0 0 '+w+' '+h+'">';
 map.forEach(function(r,y){for(var x=0;x<w;x++){var c=pal[r[x]];if(c)o+='<rect x="'+x+'" y="'+y+'" width="1.02" height="1.02" fill="'+c+'"/>'}});return o+'</svg>'}
 var M=window.innerWidth<600,S=M?5:7;
 var items=[
 {cls:'dr',x:M?'58%':'72%',y:M?'14%':'16%',svg:px(["..kk........kk..","..kk........kk..",".kkkkkkkkkkkkkk.","kkkkkkkkkkkkkkkk","kkppkkkkkkkkppkk","kkpkkkkkkkkkkpkk","kkkkkkkkkkkkkkkk",".kkgkgkkkkgkgkk.","..kkkkkkkkkkkk..","..kkkkkkkkkkkk.."],{k:'#1b1b26',p:'#e040fb',g:'#5a4a6a'},S)},
 {x:M?'8%':'60%',y:M?'70%':'62%',svg:px(["gggggggg","gggggggg","dddddddd","dbdbdbdb","bbbbbbbb","bbdbbbdb","bbbbbbbb","bdbbdbbb"],{g:'#5fb04a',d:'#6b4a2b',b:'#8b6239'},S*2.2)},
-{x:M?'70%':'82%',y:M?'74%':'30%',svg:px(["gggggggg","gGgggGgg","gkkggkkg","gkkggkkg","ggkkkkgg","gkkkkkkg","gkkggkkg","gggggggg"],{g:'#4caf50',G:'#388e3c',k:'#111'},S*2)},
-{x:M?'40%':'46%',y:M?'44%':'72%',svg:px(["wwwwwwww","wrrrrrrw","wrwwwwrw","wrwddwrw","wrwddwrw","wrwwwwrw","wrrrrrrw","wwwwwwww"],{w:'#d8c7a0',r:'#c0392b',d:'#222'},S*1.7)},
-{x:M?'12%':'90%',y:M?'20%':'58%',svg:px(["..cc..","..cc..",".cccc.","cccccc","cccccc",".cccc."],{c:'#4dd0e1'},S*1.8)}
+{x:M?'70%':'82%',y:M?'74%':'30%',svg:px(["gggggggg","gGgggGgg","gkkggkkg","gkkggkkg","ggkkkkgg","gkkkkkkg","gkkggkkg","gggggggg"],{g:'#4caf50',G:'#388e3c',k:'#111'},S*2)}
 ];
 var hero=document.getElementById('hero');
 items.forEach(function(it){var e=document.createElement('div');e.className='fl '+(it.cls||'');e.style.left=it.x;e.style.top=it.y;e.innerHTML='<div>'+it.svg+'</div>';hero.appendChild(e);
@@ -250,6 +253,21 @@ m.forEach(function(x,i){var t='',cls=r[i]?'o':'';if(r[i]){t=m[i]?'&#128163;':(cn
 b.onclick=function(){if(over)return;if(fm){if(!r[i])f[i]=!f[i]}else{if(f[i])return;if(m[i]){over=1}else open(i)}if(!over&&m.every(function(x,j){return x||r[j]}))over=2;draw()};g.appendChild(b)});
 sc.innerHTML=(over==1?'Boom! You lost':over==2?'You cleared it!':'Mines: '+K)+'<button id="fb">'+(fm?'Flag mode: ON':'Flag mode: OFF')+'</button><button>Restart</button>';sc.querySelectorAll('button')[0].onclick=function(){fm=!fm;draw()};sc.querySelectorAll('button')[1].onclick=reset}
 reset();st.append(sc,g,el('div','sc','Tap to dig. Turn flag mode on to mark mines.'))}]
+
+,['Whack-a-Creeper',function(){var sc=el('div','sc'),g=el('div','bd t3'),t=0,pts=0,left=0,pos=-1,run=0;
+function draw(){g.innerHTML='';for(var i=0;i<9;i++){(function(i){var b=el('button','',pos==i?'&#128125;':'');b.onclick=function(){if(run&&pos==i){pts++;pos=-1;draw();info()}};g.appendChild(b)})(i)}}
+function info(){sc.innerHTML=(run?'Time '+left+'s':left==0&&t?'Time up!':'Tap the creeper')+' - Hits '+pts+'<button>'+(run?'Running':'Start')+'</button>';sc.querySelector('button').onclick=start}
+function start(){if(run)return;pts=0;left=20;run=1;t=1;clearInterval(tmr);var n=0;tmr=setInterval(function(){n++;if(n%5==0){left--;if(left<=0){run=0;pos=-1;clearInterval(tmr)}}if(run&&n%(M?6:5)==0)pos=Math.random()*9|0;draw();info()},170)}
+draw();info();st.append(sc,g)}],
+['Reaction Test',function(){var b=el('button','mini','Tap to start'),sc=el('div','sc','Wait for green, then tap fast'),s=0,w=0,to,best=0;b.style.cssText='width:min(88vw,320px);height:220px;font-size:20px;border-radius:16px;background:#2a2a36;color:#fff;margin:0';
+b.onclick=function(){if(w==0){w=1;b.style.background='#c0392b';b.textContent='Wait...';to=setTimeout(function(){w=2;s=performance.now();b.style.background='#27ae60';b.textContent='TAP!'},1200+Math.random()*2500)}
+else if(w==1){clearTimeout(to);w=0;b.style.background='#2a2a36';b.textContent='Too early! Tap to retry'}
+else{var ms=Math.round(performance.now()-s);w=0;best=best?Math.min(best,ms):ms;b.style.background='#2a2a36';b.textContent=ms+' ms - tap to retry';sc.textContent='Best '+best+' ms'}};
+st.append(sc,b)}],
+['Rock Paper Scissors',function(){var o=['&#9994;','&#9995;','&#9996;'],nm=['Rock','Paper','Scissors'],w=0,l=0,sc=el('div','sc'),out=el('div','',''),r=el('div','dp');out.style.cssText='font-size:64px;text-align:center;min-height:90px';
+function info(m){sc.textContent='Wins '+w+' - Losses '+l;if(m)out.innerHTML=m}
+o.forEach(function(e,i){var b=el('button','',e);b.style.height='64px';b.style.fontSize='30px';b.onclick=function(){var c=Math.random()*3|0,res=i==c?'Draw':(i-c+3)%3==1?'You win':'You lose';if(res=='You win')w++;if(res=='You lose')l++;info(e+' vs '+o[c]+'<div style="font-size:16px">'+res+'</div>')};r.appendChild(b)});
+info('Pick one');st.append(sc,out,r)}]
 ];
 function open(i){stop();st.innerHTML='';cur=function(){open(i)};[].forEach.call(tb.children,function(b,j){b.className=j==i?'a':''});games[i][1]()}
 games.forEach(function(g,i){var b=el('button','',g[0]);b.onclick=function(){open(i)};tb.appendChild(b)});
@@ -257,6 +275,7 @@ document.getElementById('gb').onclick=function(){gm.classList.add('on');document
 document.getElementById('gx').onclick=function(){gm.classList.remove('on');document.body.style.overflow='';stop();st.innerHTML=''};
 document.addEventListener('keydown',function(e){if(gm.classList.contains('on')&&keyf){if(e.key.indexOf('Arrow')==0||e.key==' ')e.preventDefault();keyf(e.key)}});
 })();
-</script>
+
+document.getElementById('hg').onclick=function(){document.getElementById('gb').click()};</script>
 </body>
 </html>
