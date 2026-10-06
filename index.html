@@ -7,7 +7,7 @@
 <meta name="description" content="Roshan. Creator behind ind.scrolls, an India-focused Reels page. Contact and Instagram links.">
 <style>
 *{box-sizing:border-box}
-html,body{margin:0}
+html,body{margin:0;overflow-x:hidden;max-width:100%}
 body{background:#0b0b10;color:#f4f1ee;font-family:'Helvetica Neue',Arial,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 a{color:inherit}
 #load{position:fixed;inset:0;z-index:99;background:#fff;color:#111;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:transform .9s cubic-bezier(.77,0,.18,1),visibility 0s .9s}
@@ -117,7 +117,7 @@ canvas.g{background:#12121a;border:1px solid #2c2c38;border-radius:10px;max-widt
 .hd{position:fixed;top:0;left:0;right:0;z-index:70;display:flex;align-items:center;justify-content:space-between;padding:14px 20px;background:rgba(11,11,16,.55);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.07)}
 .hd b{font-size:13px;letter-spacing:.3em}.hd nav{display:flex;gap:18px}.hd nav a,.hd nav button{color:#ddd;text-decoration:none;font:inherit;font-size:12px;letter-spacing:.15em;text-transform:uppercase;background:none;border:0;cursor:pointer;padding:0}
 .hd nav a:hover,.hd nav button:hover{color:#ff7aa8}
-@media(max-width:480px){.hd nav{gap:12px}.hd nav a,.hd nav button{font-size:11px;letter-spacing:.08em}.hd b{letter-spacing:.15em}}
+@media(max-width:480px){.hd{padding:14px 12px}.hd nav{gap:10px}.hd nav a,.hd nav button{font-size:10px;letter-spacing:.05em}.hd b{letter-spacing:.12em;font-size:12px}}
 </style>
 </head>
 <body>
@@ -188,7 +188,7 @@ map.forEach(function(r,y){for(var x=0;x<w;x++){var c=pal[r[x]];if(c)o+='<rect x=
 var M=window.innerWidth<600,S=M?5:7;
 var items=[
 {cls:'dr',x:M?'58%':'72%',y:M?'14%':'16%',svg:px(["..kk........kk..","..kk........kk..",".kkkkkkkkkkkkkk.","kkkkkkkkkkkkkkkk","kkppkkkkkkkkppkk","kkpkkkkkkkkkkpkk","kkkkkkkkkkkkkkkk",".kkgkgkkkkgkgkk.","..kkkkkkkkkkkk..","..kkkkkkkkkkkk.."],{k:'#1b1b26',p:'#e040fb',g:'#5a4a6a'},S)},
-{x:M?'8%':'60%',y:M?'70%':'62%',svg:px(["gggggggg","gggggggg","dddddddd","dbdbdbdb","bbbbbbbb","bbdbbbdb","bbbbbbbb","bdbbdbbb"],{g:'#5fb04a',d:'#6b4a2b',b:'#8b6239'},S*2.2)},
+{x:M?'6%':'60%',y:M?'78%':'62%',svg:px(["gggggggg","gggggggg","dddddddd","dbdbdbdb","bbbbbbbb","bbdbbbdb","bbbbbbbb","bdbbdbbb"],{g:'#5fb04a',d:'#6b4a2b',b:'#8b6239'},S*2.2)},
 {x:M?'70%':'82%',y:M?'74%':'30%',svg:px(["gggggggg","gGgggGgg","gkkggkkg","gkkggkkg","ggkkkkgg","gkkkkkkg","gkkggkkg","gggggggg"],{g:'#4caf50',G:'#388e3c',k:'#111'},S*2)}
 ];
 var hero=document.getElementById('hero');
