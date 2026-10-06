@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ind.scrolls - Creator media kit</title>
+<meta name="description" content="India-focused Reels creator Roshan: viral moments, trending stories and a Powered by offer for the next 50 Reels.">
+<meta property="og:title" content="ind.scrolls - Creator media kit">
+<meta property="og:description" content="India-focused Reels creator Roshan: viral moments, trending stories and a Powered by offer for the next 50 Reels.">
+<meta property="og:image" content="hero.jpg">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="ani">
+<div class="petals" id="petals" aria-hidden="true"></div>
+<section class="a-hero">
+<div class="a-copy">
+<div class="a-tag">CREATOR MEDIA KIT - INDIA</div>
+<h1 class="a-title"><span>ind</span><span class="a-dot">.</span><span>scrolls</span></h1>
+<div class="a-rotor" id="rotor">VIRAL MOMENTS</div>
+<p class="a-lead">Hi, I'm Roshan. I turn interesting news, relatable moments and unique stories from across India into short Reels with strong hooks and clean storytelling.</p>
+<div class="a-stat"><b>~8,000</b><span>Instagram followers<br><small>Approximate, shared by Roshan, Sept 2026</small></span></div>
+<a class="a-btn" href="mailto:ind.scrolls@gmail.com">Start a collab</a>
+</div>
+<div class="a-art"><img src="hero.jpg" alt="Anime-style illustration of a creator with a phone above an Indian city at sunset. Illustration, not past work."></div>
+</section>
+<div class="a-marquee" aria-hidden="true"><div id="marq"></div></div>
+<section class="a-sec">
+<h2>Episode 1: The content</h2>
+<div class="a-cards">
+<article><i>01</i><h3>India, in the moment</h3><p>Viral moments, trending stories, interesting news and unique stories from across the country.</p></article>
+<article><i>02</i><h3>Relatable and fun</h3><p>Everyday content, entertainment, movies and social trends that are easy to watch and share.</p></article>
+<article><i>03</i><h3>Products, naturally</h3><p>Tech, lifestyle and products worked into the story, not shoved in like a forced ad.</p></article>
+</div>
+</section>
+<section class="a-sec a-offer">
+<h2>Episode 2: The offer</h2>
+<div class="a-burst"><div>
+<small>NEXT 50 REELS</small>
+<strong>Powered by [Your Brand]</strong>
+<p>Send a phone, laptop or tablet for content creation. Your brand name shows visibly on each of my next 50 Reels.</p>
+</div></div>
+</section>
+<section class="a-sec a-contact">
+<h2>Final episode: Let's talk</h2>
+<p>Audience insights, reach and past performance are available on request.</p>
+<a class="a-btn" href="mailto:ind.scrolls@gmail.com">ind.scrolls@gmail.com</a>
+<div class="a-foot">Roshan / @ind.scrolls - Media kit, October 2026. No reach or engagement guarantees are stated. Artwork is an illustration.</div>
+</section>
+</div>
+<script>
+var p=document.getElementById('petals'),h='';
+for(var i=0;i<18;i++){h+='<span style="left:'+((i*37)%100)+'%;animation-delay:'+((i*0.7)%9)+'s;animation-duration:'+(8+((i*5)%7))+'s;width:'+(10+((i*3)%12))+'px;height:'+(10+((i*3)%12))+'px"></span>';}
+p.innerHTML=h;
+var w=['VIRAL MOMENTS','TRENDING STORIES','INDIA NEWS','RELATABLE REELS','TECH + LIFESTYLE'],n=0,r=document.getElementById('rotor');
+setInterval(function(){n=(n+1)%w.length;r.textContent=w[n];r.style.animation='none';void r.offsetWidth;r.style.animation='';},2200);
+document.getElementById('marq').textContent=new Array(7).join('SCROLL * STORY * SPONSOR * SCROLL * STORY * SPONSOR * ');
+</script>
+</body>
+</html>
