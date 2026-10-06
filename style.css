@@ -1,0 +1,42 @@
+html, body, #root { margin: 0; min-height: 100%; }
+body { background: #14102b; margin:0 }
+.ani { position: relative; overflow: hidden; color: #fff; font-family: 'Trebuchet MS', 'Segoe UI', sans-serif; background: linear-gradient(180deg, #1b1445 0%, #3a1c6b 45%, #ff5f8d 120%); padding-bottom: 24px; }
+.ani * { box-sizing: border-box; }
+.petals span { position: absolute; top: -30px; background: #ffc2d6; border-radius: 80% 0 80% 0; opacity: .8; animation: fall linear infinite; z-index: 1; pointer-events: none; }
+@keyframes fall { to { transform: translate(-120px, 110vh) rotate(540deg); } }
+.a-hero { position: relative; z-index: 2; display: grid; grid-template-columns: 1.1fr .9fr; gap: 24px; align-items: center; padding: 48px 28px 32px; max-width: 1040px; margin: 0 auto; }
+.a-tag { display: inline-block; background: #ffd23f; color: #1b1445; font-weight: 800; font-size: 12px; letter-spacing: .12em; padding: 6px 12px; transform: skew(-10deg); }
+.a-title { font-size: clamp(52px, 11vw, 104px); line-height: .95; margin: 14px 0 6px; font-weight: 900; font-style: italic; text-shadow: 4px 4px 0 #ff3d7f, 8px 8px 0 #1b1445; animation: pop .8s cubic-bezier(.2,1.6,.4,1) both; }
+.a-dot { color: #ffd23f; }
+@keyframes pop { from { transform: scale(.6) rotate(-4deg); opacity: 0; } }
+.a-rotor { display: inline-block; font-weight: 800; font-size: 18px; color: #7ff0ff; border-left: 5px solid #ff3d7f; padding-left: 10px; animation: slide .5s ease-out both; }
+@keyframes slide { from { transform: translateX(-24px); opacity: 0; } }
+.a-lead { font-size: 16px; line-height: 1.6; max-width: 520px; margin: 18px 0; }
+.a-stat { display: flex; align-items: center; gap: 14px; margin: 16px 0 22px; }
+.a-stat b { font-size: 40px; font-weight: 900; color: #ffd23f; text-shadow: 3px 3px 0 #1b1445; animation: pulse 2s ease-in-out infinite; }
+.a-stat small { opacity: .75; }
+@keyframes pulse { 50% { transform: scale(1.08); } }
+.a-btn { display: inline-flex; align-items: center; min-height: 48px; padding: 0 26px; background: #ff3d7f; color: #fff; font-weight: 800; text-decoration: none; border: 3px solid #fff; border-radius: 4px; box-shadow: 5px 5px 0 #1b1445; transition: transform .15s; }
+.a-btn:hover { transform: translate(-2px, -2px) rotate(-1deg); }
+.a-art img { width: 100%; display: block; border: 4px solid #fff; box-shadow: 10px 10px 0 #ff3d7f; transform: rotate(2deg); animation: float 5s ease-in-out infinite; }
+@keyframes float { 50% { transform: rotate(2deg) translateY(-10px); } }
+.a-marquee { position: relative; z-index: 2; overflow: hidden; white-space: nowrap; background: #ffd23f; color: #1b1445; font-weight: 900; letter-spacing: .15em; padding: 10px 0; transform: rotate(-1.2deg); margin: 20px -10px; }
+.a-marquee div { display: inline-block; animation: marq 30s linear infinite; }
+@keyframes marq { to { transform: translateX(-50%); } }
+.a-sec { position: relative; z-index: 2; max-width: 1040px; margin: 0 auto; padding: 28px; }
+.a-sec h2 { font-size: 28px; font-style: italic; font-weight: 900; margin: 0 0 18px; display: inline-block; border-bottom: 5px solid #ff3d7f; }
+.a-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.a-cards article { background: rgba(255,255,255,.1); border: 2px solid #fff; padding: 18px; box-shadow: 6px 6px 0 #1b1445; transition: transform .2s; }
+.a-cards article:hover { transform: translateY(-6px) rotate(-1deg); }
+.a-cards i { font-style: normal; font-weight: 900; font-size: 30px; color: #7ff0ff; }
+.a-cards h3 { margin: 6px 0; font-size: 19px; }
+.a-cards p { margin: 0; line-height: 1.55; font-size: 14px; }
+.a-burst { background: repeating-conic-gradient(#ff3d7f 0 10deg, #ff6b9d 10deg 20deg); border: 4px solid #fff; padding: 34px 20px; text-align: center; box-shadow: 8px 8px 0 #1b1445; }
+.a-burst > div { background: #1b1445; padding: 22px; max-width: 560px; margin: 0 auto; border: 3px solid #ffd23f; }
+.a-burst small { color: #7ff0ff; font-weight: 800; letter-spacing: .15em; }
+.a-burst strong { display: block; font-size: clamp(26px, 6vw, 40px); font-weight: 900; color: #ffd23f; margin: 8px 0; animation: pulse 2.5s ease-in-out infinite; }
+.a-burst p { margin: 0; line-height: 1.55; }
+.a-contact p { margin: 0 0 18px; }
+.a-foot { margin-top: 28px; font-size: 12px; opacity: .7; }
+@media (max-width: 700px) { .a-hero { grid-template-columns: 1fr; padding-top: 32px; } .a-cards { grid-template-columns: 1fr; } }
+@media (prefers-reduced-motion: reduce) { .ani * { animation: none !important; } }
