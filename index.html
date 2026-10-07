@@ -107,7 +107,7 @@ footer b{color:#ff9fc0;font-weight:600}
 canvas.g{background:#12121a;border:1px solid #2c2c38;border-radius:10px;max-width:100%;touch-action:none}
 .dp{display:grid;grid-template-columns:repeat(3,56px);gap:6px}.dp button{height:48px;border-radius:10px;border:1px solid #333;background:#17171f;color:#fff;font-size:18px}
 .bd{display:grid;gap:6px}.bd button{aspect-ratio:1;background:#17171f;border:1px solid #2c2c38;border-radius:10px;color:#fff;font-size:28px;font-weight:700;cursor:pointer;padding:0}
-.t3{grid-template-columns:repeat(3,84px)}.t3 button{width:84px;height:84px}
+.t3{grid-template-columns:repeat(3,84px);position:relative}.wline{position:absolute;left:0;top:0;pointer-events:none;z-index:2}.wline line{stroke-dasharray:1;stroke-dashoffset:1;animation:wdraw .5s ease-out forwards}@keyframes wdraw{to{stroke-dashoffset:0}}..t3 button{width:84px;height:84px}
 .mm{grid-template-columns:repeat(4,70px)}.mm button{width:70px;height:70px;font-size:30px}
 .mm button.up{background:#2a1f3a;border-color:#8a5cf5}
 .g2{position:relative;background:#1c1c26;padding:8px;border-radius:12px;width:min(92vw,340px);aspect-ratio:1;touch-action:none}
