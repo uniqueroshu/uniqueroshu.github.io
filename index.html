@@ -254,18 +254,18 @@ if(h[0]<0||h[1]<0||h[0]>14||h[1]>14||s.some(function(p){return p[0]==h[0]&&p[1]=
 reset();draw();tmr=setInterval(tick,130);keyf=function(k){dir({ArrowLeft:'L',ArrowRight:'R',ArrowUp:'U',ArrowDown:'D'}[k])};swipe(cv,dir);
 var dp=el('div','dp');[['','U',''],['L','D','R']].forEach(function(r){r.forEach(function(k){var b=el('button','',k?{L:'&#9664;',R:'&#9654;',U:'&#9650;',D:'&#9660;'}[k]:'');if(!k)b.style.visibility='hidden';b.onclick=function(){dir(k)};dp.appendChild(b)})});
 st.append(sc,cv,dp,el('div','sc','Swipe on the board or use the buttons'))}],
-['Tic-Tac-Toe',function(){var b=Array(9).fill(''),sc=el('div','sc'),g=el('div','bd t3'),over=0;
+['Tic-Tac-Toe',function(){var b=Array(9).fill(''),sc=el('div','sc'),g=el('div','bd t3'),over=0,two=false,turn='X',modes=el('div','sc'),versus=el('button','','Vs computer'),duo=el('button','','2 players');modes.style.cssText='display:flex;gap:8px;align-items:center';function choose(local){two=local;b=Array(9).fill('');turn='X';over=0;versus.setAttribute('aria-pressed',!two);duo.setAttribute('aria-pressed',two);versus.style.opacity=two?.5:1;duo.style.opacity=two?1:.5;draw()}versus.onclick=function(){choose(false)};duo.onclick=function(){choose(true)};modes.append(versus,duo);
 var L=[[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
 function win(b){for(var i=0;i<8;i++){var l=L[i];if(b[l[0]]&&b[l[0]]==b[l[1]]&&b[l[0]]==b[l[2]])return b[l[0]]}return b.every(Boolean)?'T':''}
 function mm(b,p){var w=win(b);if(w)return w=='O'?1:w=='X'?-1:0;var best=p=='O'?-2:2;for(var i=0;i<9;i++)if(!b[i]){b[i]=p;var v=mm(b,p=='O'?'X':'O');b[i]='';if(p=='O'?v>best:v<best)best=v}return best}
 function ai(){var bi=-1,bv=-2;for(var i=0;i<9;i++)if(!b[i]){b[i]='O';var v=mm(b,'X');b[i]='';if(v>bv){bv=v;bi=i}}if(bi>=0)b[bi]='O'}
-function draw(){var w=win(b);g.innerHTML='';b.forEach(function(v,i){var x=el('button','',v);x.style.color=v=='X'?'#ff7aa8':'#7fd6ff';x.onclick=function(){if(b[i]||over)return;b[i]='X';if(!win(b))ai();draw()};g.appendChild(x)});
-over=!!w;sc.innerHTML=(w=='X'?'You win!':w=='O'?'Computer wins':w=='T'?'Draw':'You are X - your move')+'<button>New game</button>';sc.querySelector('button').onclick=function(){b=Array(9).fill('');draw()}}
-draw();st.append(sc,g)}],
+function draw(){var w=win(b);g.innerHTML='';b.forEach(function(v,i){var x=el('button','',v);x.style.color=v=='X'?'#ff7aa8':'#7fd6ff';x.onclick=function(){if(b[i]||over)return;b[i]=two?turn:'X';if(two){if(!win(b))turn=turn==='X'?'O':'X'}else if(!win(b))ai();draw()};g.appendChild(x)});
+over=!!w;sc.innerHTML=(w==='T'?'Draw':w?(two?'Player '+w+' wins!':w==='X'?'You win!':'Computer wins'):(two?'Player '+turn+' - your turn':'You are X - your move'))+'<button>New game</button>';sc.querySelector('button').onclick=function(){b=Array(9).fill('');turn='X';over=0;draw()}}
+choose(false);st.append(modes,sc,g,el('div','sc','2 players: take turns on this phone'))}],
 ['Memory',function(){var E=['sword','cube','crystal','moon','leaf','flame'].map(art),a=E.concat(E).sort(function(){return Math.random()-.5}),op=[],mt=0,mv=0,lock=0,sc=el('div','sc'),g=el('div','bd mm');
 function draw(){g.innerHTML='';a.forEach(function(v,i){var shown=op.indexOf(i)>-1||a[i]==null;var b=el('button',shown?'up':'',shown?(v==null?'':v):'✦');if(v==null){b.style.opacity=.25;b.style.visibility='hidden'}b.onclick=function(){if(lock||op.indexOf(i)>-1||a[i]==null)return;op.push(i);draw();if(op.length==2){mv++;lock=1;later(function(){if(a[op[0]]==a[op[1]]){a[op[0]]=a[op[1]]=null;mt++}op=[];lock=0;draw()},650)}};g.appendChild(b)});
 sc.innerHTML='Moves '+mv+(mt==6?' - You won!':'')+'<button>Restart</button>';sc.querySelector('button').onclick=function(){cur()}}
-draw();st.append(sc,g)}],
+choose(false);st.append(modes,sc,g,el('div','sc','2 players: take turns on this phone'))}],
 ['2048',function(){var n=4,gr,sco,sc=el('div','sc'),bx=el('div','g2'),col={0:'#1a2b40',2:'#b9d6dc',4:'#96c5c7',8:'#88bdb1',16:'#82bfa0',32:'#b1ba86',64:'#d5b87e',128:'#dda16e',256:'#d88785',512:'#c480b8',1024:'#ab86ce',2048:'#edce91'};
 function add(){var e=[];gr.forEach(function(r,y){r.forEach(function(v,x){if(!v)e.push([y,x])})});if(e.length){var p=e[Math.random()*e.length|0];gr[p[0]][p[1]]=Math.random()<.9?2:4}}
 function reset(){gr=[[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]];sco=0;add();add();draw()}
