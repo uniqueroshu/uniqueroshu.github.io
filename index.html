@@ -440,7 +440,7 @@ document.getElementById('hg').onclick=function(){document.getElementById('gb').c
 
 <!-- NUMBERED FEATURE MANIFEST (all self-contained modules in index.html)
 1 -> feature-1-css / feature-1-js: achievements
-2 -> feature-2-css / feature-2-js: TNT
+2 removed at user request (TNT)
 3 -> feature-3-css / feature-3-js: day/night
 4 reserved, NOT added (loading screen)
 5 reserved, NOT added (sound effects)
@@ -463,25 +463,15 @@ const toast=document.createElement('div');toast.id='f1-toast';toast.hidden=true;
 })();
 </script>
 <!-- FEATURE 1 END -->
-<!-- FEATURE 2 START: TNT block. Remove this complete block only. -->
-<style id="feature-2-css">
-#f2-tnt{position:absolute;left:37%;top:81%;z-index:6;width:58px;height:58px;border:0;border-radius:2px;background:repeating-linear-gradient(90deg,#d33b35 0 9px,#a72124 9px 13px);box-shadow:inset 0 8px #ea6d56,inset -8px -5px #751b24,5px 6px 0 #180b0b;color:#171717;padding:0;cursor:pointer;touch-action:manipulation;image-rendering:pixelated}#f2-tnt span{display:block;background:#eee2c9;border-block:2px solid #34241b;font:bold 18px/23px monospace;letter-spacing:2px}#f2-tnt:disabled{opacity:.65}#f2-fx{position:fixed;inset:0;pointer-events:none;z-index:90}#f2-fx i{position:absolute;width:7px;height:7px;background:var(--c);animation:f2-burst .9s ease-out forwards}@keyframes f2-burst{to{transform:translate(var(--x),var(--y)) rotate(180deg);opacity:0}}#f2-msg{position:absolute;z-index:10;left:24px;top:auto;bottom:94px;color:#ffdca4;background:#271c18;padding:5px 9px;border-radius:6px;font:12px system-ui}@media(min-width:700px){#f2-tnt{left:73%;top:70%}}@media(prefers-reduced-motion:reduce){#f2-fx{display:none}}
-</style>
-<script id="feature-2-js">
-(()=>{
-"use strict";
-const hero=document.getElementById('hero'),b=document.createElement('button');b.id='f2-tnt';b.type='button';b.setAttribute('aria-label','Explode TNT block');b.innerHTML='<span>TNT</span>';hero.append(b);let busy=false;b.onclick=()=>{if(busy)return;busy=true;b.disabled=true;const r=b.getBoundingClientRect(),fx=document.createElement('div');fx.id='f2-fx';fx.setAttribute('aria-hidden','true');if(!matchMedia('(prefers-reduced-motion:reduce)').matches){for(let i=0;i<22;i++){const p=document.createElement('i'),a=i/22*Math.PI*2,d=40+Math.random()*70;p.style.cssText=`left:${r.left+r.width/2}px;top:${r.top+r.height/2}px;--x:${Math.cos(a)*d}px;--y:${Math.sin(a)*d+30}px;--c:${['#ff8b55','#ffe09b','#c2ff91','#c4a4ff'][i%4]}`;fx.append(p)}document.body.append(fx)}const msg=document.createElement('div');msg.id='f2-msg';msg.setAttribute('role','status');msg.textContent='Boom! Block party.';hero.append(msg);setTimeout(()=>{fx.remove();msg.remove();busy=false;b.disabled=false},1200)};
-})();
-</script>
-<!-- FEATURE 2 END -->
 <!-- FEATURE 3 START: Day/night. Remove this complete block only. -->
 <style id="feature-3-css">
-#f3-toggle{position:absolute;left:24px;top:62px;z-index:8;border:1px solid #857c95;border-radius:20px;padding:8px 12px;background:#191624;color:#f4edff;font:12px system-ui;cursor:pointer}@media(max-height:600px){#f3-toggle{top:50px;padding:4px 10px}}html[data-f3="day"] .hd{color:#f4edff}html[data-f3="day"] .hero .tag{color:#9b2850}html[data-f3="day"] .hero .sub b{border-color:#ab2863}html[data-f3="day"] body{background:#f4f2ea;color:#25222e}html[data-f3="day"] .hero{background:#ebe7ef}html[data-f3="day"] .hero .sub,html[data-f3="day"] .hero .desc{color:#50475a}html[data-f3="day"] .hero .stat span,html[data-f3="day"] .hero .hint,html[data-f3="day"] .hero .fh{color:#5b5060}html[data-f3="day"] .ct{background:#f5f1e8;color:#282231}html[data-f3="day"] .ct .mail,html[data-f3="day"] .ct .ph{color:#322b39}html[data-f3="day"] .ct .btn:not(.o){background:#322b39;color:#fff}html[data-f3="day"] .ct .btn.o{color:#322b39;border-color:#756a7e}html[data-f3="day"] .ct footer{color:#615664}
+#f3-toggle{position:absolute;left:24px;top:62px;z-index:8;border:1px solid #857c95;border-radius:20px;padding:8px 12px;background:#191624;color:#f4edff;font:12px system-ui;cursor:default}@media(max-height:600px){#f3-toggle{top:50px;padding:4px 10px}}html[data-f3="day"] .hd{color:#f4edff}html[data-f3="day"] .hero .tag{color:#9b2850}html[data-f3="day"] .hero .sub b{border-color:#ab2863}html[data-f3="day"] body{background:#f4f2ea;color:#25222e}html[data-f3="day"] .hero{background:#ebe7ef}html[data-f3="day"] .hero .sub,html[data-f3="day"] .hero .desc{color:#50475a}html[data-f3="day"] .hero .stat span,html[data-f3="day"] .hero .hint,html[data-f3="day"] .hero .fh{color:#5b5060}html[data-f3="day"] .ct{background:#f5f1e8;color:#282231}html[data-f3="day"] .ct .mail,html[data-f3="day"] .ct .ph{color:#322b39}html[data-f3="day"] .ct .btn:not(.o){background:#322b39;color:#fff}html[data-f3="day"] .ct .btn.o{color:#322b39;border-color:#756a7e}html[data-f3="day"] .ct footer{color:#615664}
 </style>
 <script id="feature-3-js">
 (()=>{
 "use strict";
-const b=document.createElement('button');b.id='f3-toggle';b.type='button';document.getElementById('hero').append(b);let day=false;try{day=localStorage.getItem('f3-theme')==='day'}catch(e){}function render(){document.documentElement.dataset.f3=day?'day':'night';b.textContent=day?'☾ Night mode':'☀ Day mode';b.setAttribute('aria-label',day?'Switch to night mode':'Switch to day mode');b.setAttribute('aria-pressed',String(day))}b.onclick=()=>{day=!day;try{localStorage.setItem('f3-theme',day?'day':'night')}catch(e){}render()};render();
+// Auto mode: visitor's device-local time. Day 06:00-17:59; night 18:00-05:59. No saved manual preference.
+const badge=document.createElement('div');badge.id='f3-toggle';badge.setAttribute('role','status');badge.setAttribute('aria-live','polite');document.getElementById('hero').append(badge);let timer=0;function update(){clearTimeout(timer);const now=new Date(),hour=now.getHours(),day=hour>=6&&hour<18;document.documentElement.dataset.f3=day?'day':'night';badge.textContent=day?'☀ Auto: day':'☾ Auto: night';badge.title='Automatic by your local time: day 6am-6pm, night 6pm-6am';badge.setAttribute('aria-label',day?'Automatic day mode, based on your local time':'Automatic night mode, based on your local time');if(!document.hidden)timer=setTimeout(update,Math.max(1000,60000-now.getSeconds()*1000-now.getMilliseconds()))}document.addEventListener('visibilitychange',update);window.addEventListener('focus',update);window.addEventListener('pageshow',update);update();
 })();
 </script>
 <!-- FEATURE 3 END -->
