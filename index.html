@@ -476,7 +476,7 @@ const hero=document.getElementById('hero'),b=document.createElement('button');b.
 <!-- FEATURE 2 END -->
 <!-- FEATURE 3 START: Day/night. Remove this complete block only. -->
 <style id="feature-3-css">
-#f3-toggle{position:absolute;left:24px;top:62px;z-index:8;border:1px solid #857c95;border-radius:20px;padding:8px 12px;background:#191624;color:#f4edff;font:12px system-ui;cursor:pointer}html[data-f3="day"] .hd{color:#f4edff}html[data-f3="day"] .hero .tag{color:#9b2850}html[data-f3="day"] .hero .sub b{border-color:#ab2863}html[data-f3="day"] body{background:#f4f2ea;color:#25222e}html[data-f3="day"] .hero{background:#ebe7ef}html[data-f3="day"] .hero .sub,html[data-f3="day"] .hero .desc{color:#50475a}html[data-f3="day"] .hero .stat span,html[data-f3="day"] .hero .hint,html[data-f3="day"] .hero .fh{color:#5b5060}html[data-f3="day"] .ct{background:#f5f1e8;color:#282231}html[data-f3="day"] .ct .mail,html[data-f3="day"] .ct .ph{color:#322b39}html[data-f3="day"] .ct .btn:not(.o){background:#322b39;color:#fff}html[data-f3="day"] .ct .btn.o{color:#322b39;border-color:#756a7e}html[data-f3="day"] .ct footer{color:#615664}
+#f3-toggle{position:absolute;left:24px;top:62px;z-index:8;border:1px solid #857c95;border-radius:20px;padding:8px 12px;background:#191624;color:#f4edff;font:12px system-ui;cursor:pointer}@media(max-height:600px){#f3-toggle{top:50px;padding:4px 10px}}html[data-f3="day"] .hd{color:#f4edff}html[data-f3="day"] .hero .tag{color:#9b2850}html[data-f3="day"] .hero .sub b{border-color:#ab2863}html[data-f3="day"] body{background:#f4f2ea;color:#25222e}html[data-f3="day"] .hero{background:#ebe7ef}html[data-f3="day"] .hero .sub,html[data-f3="day"] .hero .desc{color:#50475a}html[data-f3="day"] .hero .stat span,html[data-f3="day"] .hero .hint,html[data-f3="day"] .hero .fh{color:#5b5060}html[data-f3="day"] .ct{background:#f5f1e8;color:#282231}html[data-f3="day"] .ct .mail,html[data-f3="day"] .ct .ph{color:#322b39}html[data-f3="day"] .ct .btn:not(.o){background:#322b39;color:#fff}html[data-f3="day"] .ct .btn.o{color:#322b39;border-color:#756a7e}html[data-f3="day"] .ct footer{color:#615664}
 </style>
 <script id="feature-3-js">
 (()=>{
@@ -498,7 +498,7 @@ const dr=document.querySelector('.fl.dr');let n=0,start,open=false;function reve
 <!-- FEATURE 6 END -->
 <!-- FEATURE 7 START: Tilt parallax. Remove this complete block only. -->
 <style id="feature-7-css">
-#f7-tilt{position:absolute;left:140px;top:62px;z-index:8;border:1px solid #857c95;border-radius:20px;padding:8px 12px;background:#191624;color:#f4edff;font:12px system-ui;cursor:pointer}#f7-tilt:disabled{opacity:.65}.f7-move{translate:var(--f7x,0px) var(--f7y,0px)}@media(prefers-reduced-motion:reduce){.f7-move{translate:none}}
+#f7-tilt{position:absolute;left:140px;top:62px;z-index:8;border:1px solid #857c95;border-radius:20px;padding:8px 12px;background:#191624;color:#f4edff;font:12px system-ui;cursor:pointer}#f7-tilt:disabled{opacity:.65}@media(max-height:600px){#f7-tilt{top:50px;padding:4px 10px}}.f7-move{translate:var(--f7x,0px) var(--f7y,0px)}@media(prefers-reduced-motion:reduce){@media(max-height:600px){#f7-tilt{top:50px;padding:4px 10px}}.f7-move{translate:none}}
 </style>
 <script id="feature-7-js">
 (()=>{
@@ -520,7 +520,7 @@ const section=document.createElement('section');section.id='f8-counter';section.
 <!-- FEATURE 8 END -->
 <!-- FEATURE 10 START: Seasonal themes. Remove this complete block only. -->
 <style id="feature-10-css">
-#f10-season{position:absolute;left:24px;top:108px;z-index:7;color:#ffd39a;font:12px/1.4 system-ui;border:1px solid #9a7147;background:#352510;padding:6px 10px;border-radius:4px}.hero[data-f10="diwali"]{box-shadow:inset 0 0 65px #bb792d45}.hero[data-f10="diwali"] .blob{background:#df9f34!important;opacity:.14!important}.hero[data-f10="newyear"]{box-shadow:inset 0 0 65px #8368c545}.hero[data-f10="christmas"]{box-shadow:inset 0 0 65px #427c5245}html[data-f3="day"] #f10-season{color:#533308;background:#ffe9b9}
+#f10-season{position:absolute;left:24px;top:108px;z-index:7;color:#ffd39a;font:12px/1.4 system-ui;border:1px solid #9a7147;background:#352510;padding:6px 10px;border-radius:4px}@media(max-height:600px){#f10-season{top:auto;bottom:10px;font-size:10px}}.hero[data-f10="diwali"]{box-shadow:inset 0 0 65px #bb792d45}.hero[data-f10="diwali"] .blob{background:#df9f34!important;opacity:.14!important}.hero[data-f10="newyear"]{box-shadow:inset 0 0 65px #8368c545}.hero[data-f10="christmas"]{box-shadow:inset 0 0 65px #427c5245}html[data-f3="day"] #f10-season{color:#533308;background:#ffe9b9}
 </style>
 <script id="feature-10-js">
 (()=>{
@@ -530,4 +530,4 @@ const section=document.createElement('section');section.id='f8-counter';section.
 </script>
 <!-- FEATURE 10 END -->
 </body>
-</html>
+  </html>
