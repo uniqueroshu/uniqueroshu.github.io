@@ -532,5 +532,24 @@ const reduced=matchMedia('(prefers-reduced-motion:reduce)'),ring=document.create
 })();
 </script>
 <!-- Minimal site tap feedback END -->
+<!-- Instagram card press feedback. Independent of background tap pulse. -->
+<style id="card-press-css">
+.row{transform-origin:center;transition:scale 170ms cubic-bezier(.2,.7,.3,1),background-color 170ms ease,box-shadow 170ms ease,color .3s ease;will-change:scale}
+.row.v{transition-delay:0s!important}
+.row.card-pressed{scale:.975;background-color:rgba(90,78,110,.065);box-shadow:inset 0 0 0 1px rgba(90,78,110,.08)}
+@media(prefers-reduced-motion:reduce){.row{scale:1!important;transition:none!important}.row.card-pressed{background-color:rgba(90,78,110,.065)}}
+</style>
+<script id="card-press-js">
+(()=>{
+'use strict';
+const rows=[...document.querySelectorAll('.row')],timers=new WeakMap();let active=null;
+function clear(row){clearTimeout(timers.get(row));row.classList.remove('card-pressed')}
+function down(row,x,y,id){if(active)clear(active.row);clearTimeout(timers.get(row));row.classList.add('card-pressed');active={row,x,y,id,time:performance.now()}}
+function release(cancel=false){if(!active)return;const s=active;active=null;if(cancel){clear(s.row);return}timers.set(s.row,setTimeout(()=>clear(s.row),Math.max(0,170-(performance.now()-s.time))))}
+if('PointerEvent' in window){rows.forEach(row=>row.addEventListener('pointerdown',e=>{if(e.isPrimary&&e.button===0)down(row,e.clientX,e.clientY,e.pointerId)},{passive:true}));document.addEventListener('pointermove',e=>{if(active&&active.id===e.pointerId&&Math.hypot(e.clientX-active.x,e.clientY-active.y)>16)release(true)},{passive:true});document.addEventListener('pointerup',()=>release(),{passive:true});document.addEventListener('pointercancel',()=>release(true),{passive:true})}
+else{rows.forEach(row=>row.addEventListener('touchstart',e=>{if(e.touches.length===1){const t=e.touches[0];down(row,t.clientX,t.clientY,0)}},{passive:true}));document.addEventListener('touchmove',e=>{const t=e.touches[0];if(active&&t&&Math.hypot(t.clientX-active.x,t.clientY-active.y)>16)release(true)},{passive:true});document.addEventListener('touchend',()=>release(),{passive:true});document.addEventListener('touchcancel',()=>release(true),{passive:true})}
+rows.forEach(row=>{row.addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.repeat)down(row,0,0,-1)});row.addEventListener('keyup',()=>release());row.addEventListener('blur',()=>clear(row))});window.addEventListener('blur',()=>{release(true);rows.forEach(clear)})
+})();
+</script>
 </body>
      </html>
