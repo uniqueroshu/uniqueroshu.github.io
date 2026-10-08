@@ -58,18 +58,18 @@ h1 span:hover{color:#ff7aa8;transform:translateY(-8px) rotate(-3deg);transition-
 .row:before{content:"";position:absolute;inset:0;background:#daf1d0;opacity:0;transition:opacity .18s ease-out;z-index:0;pointer-events:none}
 .row:after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:linear-gradient(90deg,#426e32 0 26%,#72a35e 26% 68%,#a7cb8e 68%);transform:scaleX(0);transform-origin:left;transition:transform .3s cubic-bezier(.2,.8,.2,1);pointer-events:none}
 .row>*{position:relative;z-index:1;transition:transform .18s ease-out,color .18s ease-out}
-.row.p,.row:active{transition-duration:.18s!important;transform:scale(.98)!important;color:#162310}
+.row.p,.row:active{transition-duration:.18s!important;transition-delay:0s!important;transform:scale(.98)!important;color:#162310}
 .row.p:before,.row:active:before{opacity:1}
 .row.p:after,.row:active:after{transform:scaleX(1)}
-.row.p em,.row:active em{transform:translate(3px,-3px);color:#426e32}
+.row.p em,.row:active em{transform:translate(0,-3px);color:#426e32}
 .row.p i,.row:active i{color:#426e32}.row.p small,.row:active small{color:#4d6045}
 .row:focus-visible{outline:2px solid #426e32;outline-offset:3px}
-@media(hover:hover){.row:hover:before{opacity:.5}.row:hover:after{transform:scaleX(1)}.row:hover em{transform:translate(3px,-3px);color:#426e32}}
+@media(hover:hover){.row:hover:before{opacity:.5}.row:hover:after{transform:scaleX(1)}.row:hover em{transform:translate(0,-3px);color:#426e32}}
 @media(prefers-reduced-motion:reduce){.row,.row.p,.row:active,.row:before,.row:after,.row>*{transition:none!important;transform:none!important}.row:after{display:none}}
 .row i{font-style:normal;font-size:13px;color:#a59e98;width:26px}
 .row b{font-size:clamp(22px,5vw,34px);font-weight:600;letter-spacing:-.02em;flex:1}
 .row small{font-size:13px;color:#8a837e;text-align:right;white-space:nowrap}
-.row em{font-style:normal;font-size:22px}
+.row em{font-style:normal;font-size:22px;justify-self:center}
 
 .ct{background:#0b0b10;padding:96px 24px 40px;position:relative}
 .mail{display:inline-block;font-size:clamp(24px,6.4vw,52px);font-weight:600;letter-spacing:-.03em;text-decoration:none;background:linear-gradient(#ff7aa8,#ff7aa8) 0 100%/0 3px no-repeat;transition:background-size .5s,color .3s;word-break:break-all}
@@ -137,7 +137,7 @@ footer.r{padding-bottom:84px}
 @media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
 
 .fl.dr{filter:none!important}.fl img{display:block;object-fit:contain;pointer-events:none}.fl.dr img{width:260px;height:auto}.fl.grass img{width:142px;height:auto}.fl.creeper img{width:76px;height:auto}@media(max-width:600px){.fl.dr img{width:152px}.fl.grass img{width:88px}.fl.creeper img{width:54px}}
-@media(max-width:600px){.row{grid-template-columns:22px minmax(0,1fr) 60px 16px;gap:10px;min-height:88px}.row b{font-size:clamp(16px,4.5vw,22px);white-space:nowrap}.row small{font-size:10px}.row em{font-size:18px}.row i{width:auto}}
+@media(max-width:600px){.row{grid-template-columns:22px minmax(0,1fr) 60px 16px;gap:10px;min-height:88px}.row b{font-size:clamp(16px,4.5vw,22px);white-space:nowrap}.row small{font-size:10px}.row em{font-size:16px}.row i{width:auto}}
 
 .bw{width:100%;max-width:1100px}.bw:fullscreen{background:#0b0b10;padding:8px;max-width:none}.bwbar{display:flex;align-items:center;gap:6px;flex-wrap:wrap;font-size:11px}.bwbar button,.bwbar select,.bwcontrols button{background:#20202d;color:#fff;border:1px solid #4b4258;border-radius:8px;padding:8px;font:inherit}.bwbar span{margin-left:auto}.bwmsg{font-size:11px;color:#aaa;padding:5px 0}.bwc{display:block;width:100%;touch-action:none;image-rendering:pixelated;border-radius:8px}.bwcontrols{display:flex;gap:12px;padding:8px 0}.bwcontrols button{width:68px;touch-action:none;font-size:16px}.bwcontrols button:last-child{margin-left:auto}.bwcontrols button:active{background:#b4456b}
 
@@ -437,4 +437,4 @@ document.addEventListener('keydown',function(e){if(gm.classList.contains('on')&&
 document.getElementById('hg').onclick=function(){document.getElementById('gb').click()};</script>
 <script>(function(){var hr=document.getElementById('hero');if(window.IntersectionObserver)new IntersectionObserver(function(e){hr.classList.toggle('off',!e[0].isIntersecting||document.getElementById('gm').classList.contains('on'))}).observe(hr);document.addEventListener('visibilitychange',function(){hr.classList.toggle('off',document.hidden||document.getElementById('gm').classList.contains('on')||hr.getBoundingClientRect().bottom<=0)})})();</script>
 </body>
-</html>
+                   </html>
