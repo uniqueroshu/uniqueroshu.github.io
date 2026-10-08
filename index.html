@@ -532,5 +532,16 @@ const section=document.createElement('section');section.id='f8-counter';section.
 html[data-f3="day"] .fl.dr::before,html[data-f3="day"] .fl.grass::before,html[data-f3="day"] .fl.creeper::before{content:"";position:absolute;pointer-events:none;z-index:-1;inset:2% -20% -16%;border-radius:50%;background:radial-gradient(ellipse at center,var(--ambient) 0%,transparent 70%)}
 html[data-f3="day"] .fl.dr{--ambient:rgba(94,65,130,.32)}html[data-f3="day"] .fl.grass,html[data-f3="day"] .fl.creeper{--ambient:rgba(51,81,42,.3)}
 </style>
+<!-- Minimal site tap feedback. Remove this complete block only. -->
+<style id="site-tap-css">
+#site-tap-feedback{position:fixed;left:0;top:0;width:34px;height:34px;margin:-17px;border-radius:50%;border:1px solid rgba(255,255,255,.42);background:rgba(255,255,255,.035);z-index:130;pointer-events:none;opacity:0;contain:layout paint;will-change:transform,opacity}html[data-f3="day"] #site-tap-feedback{border-color:rgba(69,58,84,.28);background:rgba(69,58,84,.025)}@media(prefers-reduced-motion:reduce){#site-tap-feedback{display:none}}
+</style>
+<script id="site-tap-js">
+(()=>{
+'use strict';
+const reduced=matchMedia('(prefers-reduced-motion:reduce)'),ring=document.createElement('div');ring.id='site-tap-feedback';ring.setAttribute('aria-hidden','true');document.body.append(ring);let start=null,motion=null;function excluded(t){return !(t instanceof Element)||!!t.closest('#gm,input,textarea,select,[contenteditable="true"]')}function show(x,y){if(reduced.matches||!ring.animate)return;if(motion)motion.cancel();ring.style.left=x+'px';ring.style.top=y+'px';motion=ring.animate([{transform:'scale(.55)',opacity:.55},{transform:'scale(1.4)',opacity:0}],{duration:290,easing:'cubic-bezier(.18,.65,.3,1)'});motion.onfinish=()=>{motion=null}}document.addEventListener('pointerdown',e=>{start=!reduced.matches&&e.isPrimary&&e.button===0&&!excluded(e.target)?{id:e.pointerId,x:e.clientX,y:e.clientY,time:performance.now()}:null},{passive:true});document.addEventListener('pointerup',e=>{const s=start;start=null;if(!s||s.id!==e.pointerId||performance.now()-s.time>650||Math.hypot(e.clientX-s.x,e.clientY-s.y)>8||excluded(e.target))return;show(e.clientX,e.clientY)},{passive:true});document.addEventListener('pointercancel',()=>{start=null},{passive:true});document.addEventListener('click',e=>{if(e.detail!==0||excluded(e.target))return;const t=e.target.closest('button,a,[role="button"]');if(!t)return;const r=t.getBoundingClientRect();show(r.x+r.width/2,r.y+r.height/2)},{passive:true});reduced.addEventListener('change',()=>{if(reduced.matches){start=null;if(motion){motion.cancel();motion=null}}});
+})();
+</script>
+<!-- Minimal site tap feedback END -->
 </body>
   </html>
